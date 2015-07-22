@@ -107,20 +107,6 @@ function populateCircles(num) {
     return circles;
 }
 
-function drawAudioSpectrum(fft, sound, step) {
-    fft.setInput(sound);
-    var spectrum = fft.analyze();
-    push();
-    fill("#336699");
-    beginShape();
-    var i;
-    for(i = 0; i < spectrum.length; i += step) {
-        vertex(i, map(spectrum[i], 0, 1500, 200, 0));
-    }
-    endShape();
-    pop();
-}
-
 function volume(sound, level) {
     var volume = map(level, 0, width, 0, 1);
     volume = constrain(volume, 0, 1);
