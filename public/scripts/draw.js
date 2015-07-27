@@ -40,35 +40,37 @@ function draw() {
         noStroke();
     }
 
-    var spectrum = fft.analyze();
-    var vol = analyzer.getLevel();
+    if(sound && sound.isPlaying()) {
+        filterFreq = map(mouseX, 0, width, 10, 22050);
 
-    var i;
-    for(i = 0; i < circles.length; i++) {
-        var circle = circles[i];
-        vertex(circle.x, circle.y);
-        circle.draw();
-        circle.step(vol, spectrum[spectrum.length % i]);
-    }
+        filterRes = map(mouseY, 0, height, 5, 15);
 
-    filterFreq = map(mouseX, 0, width, 10, 22050);
+        filter.set(filterFreq, filterRes);
 
-    filterRes = map(mouseY, 0, height, 5, 15);
+        var spectrum = fft.analyze();
+        var vol = analyzer.getLevel();
 
-    filter.set(filterFreq, filterRes);
-
-    if(sound && slider) {
-        if(mouseIsPressed) {
-            slider.x = mouseX;
-            sound.stop();
-            sound.jump(map(slider.x, 0, width, 0, sound.duration()), 0);
+        var i;
+        for(i = 0; i < circles.length; i++) {
+            var circle = circles[i];
+            vertex(circle.x, circle.y);
+            circle.draw();
+            circle.step(vol, spectrum[spectrum.length % i]);
         }
-        var xPos = map(sound.currentTime() / sound.duration(), 0, 1, 50, width);
-        slider.x = xPos;
+
+        if(slider) {
+            if(mouseIsPressed) {
+                slider.x = mouseX;
+                sound.stop();
+                sound.jump(map(slider.x, 0, width, 0, sound.duration()), 0);
+            }
+            var xPos = map(sound.currentTime() / sound.duration(), 0, 1, 50, width);
+            slider.x = xPos;
+        }
     }
     drawFooter(0, height - 50);
     slider.draw();
-    fill(90);
+    fill(120);
     ellipse(mouseX, mouseY, 35, 35);
 }
 
