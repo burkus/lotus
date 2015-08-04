@@ -27,7 +27,7 @@ function setup() {
     slider = new Slider(13, height - 50);
     minRadius = 5;
     maxRadius = 15;
-    maxOutset = height - 100;
+    maxOutset = height - 250;
     minOutset = -200;
 }
 

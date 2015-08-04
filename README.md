@@ -20,3 +20,4 @@ WASD keys control the min and max size of the atoms.
 ![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/six.png)
 ![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/seven.png)
 ![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/eight.png)
+video here -> https://vid.me/BiMK
