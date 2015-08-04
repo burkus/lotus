@@ -12,11 +12,11 @@ The mouse x and y coordinates are bound to filter frequencies.
 WASD keys control the min and max size of the atoms.
 
 ##Examples
-![alt text](github.com/andrew-burkus/lotus/img/one)
-![alt text](github.com/andrew-burkus/lotus/img/two)
-![alt text](github.com/andrew-burkus/lotus/img/three)
-![alt text](github.com/andrew-burkus/lotus/img/four)
-![alt text](github.com/andrew-burkus/lotus/img/five)
-![alt text](github.com/andrew-burkus/lotus/img/six)
-![alt text](github.com/andrew-burkus/lotus/img/seven)
-![alt text](github.com/andrew-burkus/lotus/img/eight )
+![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/one.png)
+![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/two.png)
+![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/three.png)
+![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/four.png)
+![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/five.png)
+![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/six.png)
+![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/seven.png)
+![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/eight.png)
