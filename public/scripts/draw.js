@@ -32,7 +32,7 @@ function setup() {
 }
 
 function draw() {
-    if(drawBg) background(bkColor);
+    if(drawBg) background(bkColor, 0, 0, 0);
     if(drawStroke) {
         stroke(0);
         strokeWeight(4.0);
