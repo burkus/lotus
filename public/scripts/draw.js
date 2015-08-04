@@ -71,7 +71,7 @@ function draw() {
     }
     drawFooter(0, height - 50);
     slider.draw();
-    fill(120);
+    fill(45);
     ellipse(mouseX, mouseY, 10, 10);
 }
 
