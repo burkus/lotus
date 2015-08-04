@@ -11,9 +11,9 @@ function preload() {
 function setup() {
     noCursor();
     canvas = createCanvas(windowWidth, windowHeight).parent('container');
-    maxHue = 1000;
-    maxSat = 1000;
-    maxB = 1000;
+    maxHue = 360;
+    maxSat = 100;
+    maxB = 100;
     maxA = 1;
     colorMode(HSB, maxHue, maxSat, maxB, maxA);
     blendMode(REPLACE);
