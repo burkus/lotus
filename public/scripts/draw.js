@@ -36,7 +36,7 @@ function draw() {
     if(drawBg) background(bkColor, 0, 0, 0);
     if(drawStroke) {
         stroke(0);
-        strokeWeight(4.0);
+        strokeWeight(2.0);
     } else {
         noStroke();
     }
@@ -71,7 +71,7 @@ function draw() {
     }
     drawFooter(0, height - 50);
     slider.draw();
-    fill(45);
+    fill(45, 0, 0, 0);
     ellipse(mouseX, mouseY, 10, 10);
 }
 
@@ -92,13 +92,13 @@ Circle.prototype.draw = function() {
 Circle.prototype.step = function(vol, freq) {
     if(mode === 'classical') {
         freq *= 1.5;
-        vol *= 1.5;
+        vol *= 1.618;
     }
     this.radius = constrain(freq * vol, minRadius, maxRadius);
-    this.color.hue = map(freq, 0, 255, 0, maxHue);
-    this.color.sat = map(freq, 0, 255, 0, maxSat);
-    this.color.b = map(freq, 0, 255, 0, maxB);
-    this.color.a = map(freq, 0, 255, 0, maxA);
+    this.color.hue = map(freq, 0, 255, 25, maxHue);
+    this.color.sat = map(freq, 0, 255, 55, maxSat);
+    this.color.b = map(freq, 0, 255, 45, maxB);
+    this.color.a = map(freq, 0, 255, 75, maxA);
 
     this.y = height / 2 + sin(map(freq, 0, 255, 0, 360)) * constrain(freq * vol * 5, minOutset, maxOutset);
     this.x = width / 2 + cos(map(freq, 0, 255, 0, 360)) * constrain(freq * vol * 5, minOutset, maxOutset);
