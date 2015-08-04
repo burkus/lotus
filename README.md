@@ -12,11 +12,11 @@ The mouse x and y coordinates are bound to filter frequencies.
 WASD keys control the min and max size of the atoms.
 
 ##Examples
-![alt text](andrew-burkus.github.io/lotus/img/one)
-![alt text](andrew-burkus.github.io/lotus/img/two)
-![alt text](andrew-burkus.github.io/lotus/img/three)
-![alt text](andrew-burkus.github.io/lotus/img/four)
-![alt text](andrew-burkus.github.io/lotus/img/five)
-![alt text](andrew-burkus.github.io/lotus/img/six)
-![alt text](andrew-burkus.github.io/lotus/img/seven)
-![alt text](andrew-burkus.github.io/lotus/img/eight )
+![alt text](github.com/andrew-burkus/lotus/img/one)
+![alt text](github.com/andrew-burkus/lotus/img/two)
+![alt text](github.com/andrew-burkus/lotus/img/three)
+![alt text](github.com/andrew-burkus/lotus/img/four)
+![alt text](github.com/andrew-burkus/lotus/img/five)
+![alt text](github.com/andrew-burkus/lotus/img/six)
+![alt text](github.com/andrew-burkus/lotus/img/seven)
+![alt text](github.com/andrew-burkus/lotus/img/eight )
