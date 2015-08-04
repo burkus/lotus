@@ -28,7 +28,7 @@ function setup() {
     minRadius = 5;
     maxRadius = 15;
     maxOutset = height - 100;
-    minOutset = -1000;
+    minOutset = -200;
 }
 
 function draw() {
