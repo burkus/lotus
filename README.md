@@ -10,6 +10,8 @@ Alt toggles the background.
 The mouse x and y coordinates are bound to filter frequencies.
 ####Visualization
 WASD keys control the min and max size of the atoms.
+####Classical Mode
+Press the 'c' key to enable classical mode
 
 ##Examples
 ![alt text](https://raw.githubusercontent.com/Andrew-Burkus/lotus/gh-pages/img/one.png)

@@ -1,6 +1,6 @@
 var canvas, sound, analyzer, filter, fft, filterFreq, filterRes,
     circles, max, drawBg, maxHue, maxSat, maxB, maxA, bkColor, lines,
-    drawStroke, slider, minRadius, maxRadius, maxOutset, minOutset;
+    drawStroke, slider, minRadius, maxRadius, maxOutset, minOutset, mode;
 
 function preload() {
     analyzer = new p5.Amplitude();
@@ -29,6 +29,7 @@ function setup() {
     maxRadius = 15;
     maxOutset = height - 250;
     minOutset = -200;
+    mode = 'normal';
 }
 
 function draw() {
@@ -89,6 +90,10 @@ Circle.prototype.draw = function() {
 };
 
 Circle.prototype.step = function(vol, freq) {
+    if(mode === 'classical') {
+        freq *= 1.5;
+        vol *= 1.5;
+    }
     this.radius = constrain(freq * vol, minRadius, maxRadius);
     this.color.hue = map(freq, 0, 255, 0, maxHue);
     this.color.sat = map(freq, 0, 255, 0, maxSat);
@@ -141,17 +146,20 @@ function keyPressed() {
 
 function keyTyped() {
     if(key === 'w') {
-        minRadius += 15;
+        minRadius += 1;
     } else if(key === 's') {
-        minRadius -= 15;
+        minRadius -= 1;
     } else if(key === 'a'){
-        maxRadius -= 15;
+        maxRadius -= 1;
     } else if(key === 'd') {
-        maxRadius += 15;
+        maxRadius += 1;
     } else if(key === 'r') {
         if(sound) {
             sound.jump();
         }
+    } else if(key === 'c') {
+        if(mode === 'normal') mode = 'classical';
+        else mode = 'normal';
     }
 }
 
