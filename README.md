@@ -19,4 +19,4 @@ WASD keys control the min and max size of the atoms.
 ![alt text](andrew-burkus.github.io/lotus/img/five)
 ![alt text](andrew-burkus.github.io/lotus/img/six)
 ![alt text](andrew-burkus.github.io/lotus/img/seven)
-![alt text](andrew-burkus.github.io/lotus/img/eight)
+![alt text](andrew-burkus.github.io/lotus/img/eight )
