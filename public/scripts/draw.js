@@ -175,4 +175,6 @@ function handleFiles(files) {
         analyzer.setInput(filter);
     }
     reader.readAsDataURL(file);
+    mouseX = width / 2;
+    mouseY = height / 2;
 }
