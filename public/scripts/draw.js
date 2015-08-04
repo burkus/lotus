@@ -26,9 +26,9 @@ function setup() {
     drawStroke = false;
     slider = new Slider(13, height - 50);
     minRadius = 5;
-    maxRadius = 10;
-    maxOutset = 275;
-    minOutset = 0;
+    maxRadius = 15;
+    maxOutset = height - 50;
+    minOutset = -100;
 }
 
 function draw() {
@@ -71,7 +71,7 @@ function draw() {
     drawFooter(0, height - 50);
     slider.draw();
     fill(120);
-    ellipse(mouseX, mouseY, 35, 35);
+    ellipse(mouseX, mouseY, 10, 10);
 }
 
 function Circle(x, y, radius) {
