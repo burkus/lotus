@@ -18,15 +18,15 @@ function setup() {
     colorMode(HSB, maxHue, maxSat, maxB, maxA);
     blendMode(REPLACE);
     //
-    circles = populateCircles(200);
+    circles = populateCircles(300);
     max = 250;
     //
     drawBg = true;
     bkColor = 20;
     drawStroke = false;
     slider = new Slider(13, height - 50);
-    minRadius = 75;
-    maxRadius = 150;
+    minRadius = 5;
+    maxRadius = 10;
     maxOutset = 275;
     minOutset = 0;
 }
