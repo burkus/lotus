@@ -22,7 +22,7 @@ function setup() {
     max = 250;
     //
     drawBg = true;
-    bkColor = 20;
+    bkColor = 0;
     drawStroke = false;
     slider = new Slider(13, height - 50);
     minRadius = 5;

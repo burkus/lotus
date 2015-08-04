@@ -1,7 +1,7 @@
 function Slider(x, y) {
     this.x = x;
     this.y = y;
-    this.color = 0;
+    this.color = 25;
 }
 
 function drawFooter(x, y) {
