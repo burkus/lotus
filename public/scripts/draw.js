@@ -1,11 +1,10 @@
 var canvas, sound, analyzer, filter, fft, filterFreq, filterRes,
     circles, max, drawBg, maxHue, maxSat, maxB, maxA, bkColor, lines,
-    drawStroke, slider, minRadius, maxRadius, maxOutset, minOutset, mode;
+    drawStroke, slider, minRadius, maxRadius, maxOutset, minOutset;
 
 function preload() {
     analyzer = new p5.Amplitude();
     fft = new p5.FFT();
-    filter = new p5.LowPass();
 }
 
 function setup() {
@@ -29,50 +28,22 @@ function setup() {
     maxRadius = 15;
     maxOutset = height - 250;
     minOutset = -200;
-    mode = 'normal';
 }
 
 function draw() {
-    if(drawBg) background(bkColor, 0, 0, 0);
-    if(drawStroke) {
-        stroke(0);
-        strokeWeight(2.0);
-    } else {
-        noStroke();
-    }
+  background(bkColor, 0, 0, 0);
 
     if(sound && sound.isPlaying()) {
-        filterFreq = map(mouseX, 0, width, 10, 22050);
-
-        filterRes = map(mouseY, 0, height, 5, 15);
-
-        filter.set(filterFreq, filterRes);
-
         var spectrum = fft.analyze();
         var vol = analyzer.getLevel();
 
         var i;
         for(i = 0; i < circles.length; i++) {
             var circle = circles[i];
-            vertex(circle.x, circle.y);
-            circle.draw();
             circle.step(vol, spectrum[spectrum.length % i]);
+            circle.draw();
         }
-
-        if(slider) {
-            if(mouseIsPressed) {
-                slider.x = mouseX;
-                sound.stop();
-                sound.jump(map(slider.x, 0, width, 0, sound.duration()), 0);
-            }
-            var xPos = map(sound.currentTime() / sound.duration(), 0, 1, 50, width);
-            slider.x = xPos;
-        }
-    }
-    drawFooter(0, height - 50);
-    slider.draw();
-    fill(45, 0, 0, 0);
-    ellipse(mouseX, mouseY, 10, 10);
+      }
 }
 
 function Circle(x, y, radius) {
@@ -83,32 +54,30 @@ function Circle(x, y, radius) {
 }
 
 Circle.prototype.draw = function() {
-    push();
     fill(this.color.hue, this.color.sat, this.color.b, this.color.a);
     ellipse(this.x, this.y, this.radius, this.radius);
-    pop();
 };
 
 Circle.prototype.step = function(vol, freq) {
-    if(mode === 'classical') {
-        freq *= 1.5;
-        vol *= 1.618;
-    }
     this.radius = constrain(freq * vol, minRadius, maxRadius);
     this.color.hue = map(freq, 0, 255, 25, maxHue);
     this.color.sat = map(freq, 0, 255, 55, maxSat);
     this.color.b = map(freq, 0, 255, 45, maxB);
     this.color.a = map(freq, 0, 255, 75, maxA);
 
-    this.y = height / 2 + sin(map(freq, 0, 255, 0, 360)) * constrain(freq * vol * 5, minOutset, maxOutset);
-    this.x = width / 2 + cos(map(freq, 0, 255, 0, 360)) * constrain(freq * vol * 5, minOutset, maxOutset);
+    this.y = height / 2 + sin(map(freq, 0, 255, 0, 360))
+            * constrain(freq * vol * 5, minOutset, maxOutset);
+    this.x = width / 2 + cos(map(freq, 0, 255, 0, 360))
+            * constrain(freq * vol * 5, minOutset, maxOutset);
 };
 
 function populateCircles(num) {
     var circles = [];
     var i;
     for(i = 0; i < num; i++) {
-        var circle = new Circle(random(100, width - 100), random(100, height - 100), 50, 50);
+        var circle = new Circle(random(100, width - 100),
+                                random(100, height - 100),
+                                50, 50);
         circles.push(circle);
     }
     return circles;
@@ -144,45 +113,24 @@ function keyPressed() {
     }
 }
 
-function keyTyped() {
-    if(key === 'w') {
-        minRadius += 1;
-    } else if(key === 's') {
-        minRadius -= 1;
-    } else if(key === 'a'){
-        maxRadius -= 1;
-    } else if(key === 'd') {
-        maxRadius += 1;
-    } else if(key === 'r') {
-        if(sound) {
-            sound.jump();
-        }
-    } else if(key === 'c') {
-        if(mode === 'normal') mode = 'classical';
-        else mode = 'normal';
-    }
-}
-
 window.onresize = function() {
   var w = window.innerWidth;
   var h = window.innerHeight;
   canvas.resize(w, h);
   width = w;
   height = h;
-}
+};
 
 function handleFiles(files) {
     var file = files[0];
     var reader = new FileReader();
     reader.onload = function(e) {
         var data = e.target.result;
-        window.sound = loadSound(data);
-        sound.disconnect();
-        sound.connect(filter);
-        fft.setInput(filter);
-        analyzer.setInput(filter);
+        sound = loadSound(data);
+        //sound.connect(filter);
+        // fft.setInput(filter);
+        fft.setInput(sound);
+        analyzer.setInput(sound);
     }
     reader.readAsDataURL(file);
-    mouseX = width / 2;
-    mouseY = height / 2;
-}
+  }
